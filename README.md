@@ -1,36 +1,94 @@
-Contract myToken
-This is a basic Solidity contract for a token named "Meta" with the symbol "MTA". The contract includes two public variables, tokenName and tokenAbbrv, which hold the token's name and abbreviation, respectively. Additionally, the totalSupply variable tracks the total amount of tokens in circulation.
+# EthProof-Beginner Course
+## FinalProject - MyToken
 
-Overview
-This program is a simple smart contract written in Solidity, the programming language used for developing decentralized applications on the Ethereum blockchain. It also includes a mapping variable. The contract provides two main functions: mint and burn. The mint function allows adding tokens to the total supply and to the balance of a specific address. The burn function enables the removal of tokens from the total supply and the balance of a given address, provided the address has a sufficient balance to cover the burn amount.
+Hello! This code is designed to create a token on the Ethereum blockchain. It enables actions such as token creation (minting) and token destruction (burning). The token is named "shekoin" with the symbol "oin". It keeps track of the total supply and the balances of each address.
+## Description
 
-Getting Started Running the Program
-To execute this program, you can use Remix, an online IDE designed for Solidity. Head to the Remix platform at Remix Ethereum. Once there, create a new file by clicking the "+" button in the left-hand menu. Save the file with a .sol extension. Copy and paste the following code into the newly created file:
+The shekoin (oin) token contract offers essential token functionalities on the Ethereum blockchain. It defines the token's name, symbol, and total supply through public variables and uses mappings to track user balances. 
+## Getting Started
 
-solidity
-Copy code
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18;
+### Installing
 
+## How/where to download your program
+
+This program can be downloaded from this website (Remix IDE). It is Solidity Integrated Development Environment (IDE) that enables programmers or developers to create and deploy their own smart contracts on the Ethereum blockchain.
+
+## Any modifications needed to be made to files/folders
+
+There are no further modifications required to files or folder after downloading the program. All necessary components can be directly accessed within the Remix IDE. Download this program from the Remix IDE website, and you can start creating your code and deploying your own smart contracts here.
+
+## Executing program
+
+To execute this program, you need to understand and follow carefully the provided instructions.
+  • Open your code editor and open the file containing the MyToken contract.
+ 
+  • Ensure that you have the correct environment for deploying your smart contract on the blockchain network.
+  
+  • Copy the code I have given below and Compile it, Make sure the compiler version should be supported.
+
+  • Now in the "deploy and run transactions" section, Mint the Token and Burn them as well and Enjoy!.
+  
+  • Within your contract, you will find the following steps:
+     
+      Step A: Set the name and abbreviation of your token by updating the tokenName and tokenAbbrv variables.
+      
+      Step B: Establish the intial supply of your token by updating the totalSupply variable.
+      
+      Step C: Add addresses and their balances using the mint function.
+      
+      Step D: Choose addresses and initiate the token reduction process using the burn function.
+  
+  • Follow the comments inside the code to understand each part of the contract.
+
+
+```
 contract MyToken {
 
-    string public tokenName = "Meta";
-    string public tokenAbbrv = "MTA";
-    uint public totalSupply = 0;
-
-    mapping(address => uint) public balances;
-
-    function mint(address _address, uint _value) public {
-        totalSupply += _value;
-        balances[_address] += _value;
+    string public constant TokenName = "Shekoin";
+    string public constant tok_ab = "oin";
+    uint public totalTok = 0;
+    // mapping variable here
+    mapping(address => uint) public wallet;
+    // mint function
+    function mint(address _add, uint _val)external {
+        wallet[_add]+=_val;
+        totalTok+=_val;
     }
-
-    function burn(address _address, uint _value) public {
-        if (balances[_address] >= _value) {
-            totalSupply -= _value;
-            balances[_address] -= _value;
+    // burn function
+    function burn(address _add, uint _val) external {
+        if(wallet[_add]>_val){
+            wallet[_add]-=_val;
+            totalTok-=_val;
         }
+        else revert("Not enough token to burn.");
     }
 }
-Compiling and Deploying
-To compile the contract, click on the "Solidity Compiler" option in the left-hand menu. Ensure the "Compiler" version is set to "0.8.18" (or a compatible one), and then press the "Compile mytoken.sol" button. Once compiled, head over to the "Deploy & Run Transactions" section, select the "contract mytoken" from the dropdown, and click "Deploy" to deploy your contract.
+```
+
+## Help
+
+Here are some tips fo encountering common problems.
+
+When encountering issues with accessing your token, ensure that your permissions are correct.
+
+If there are errors in minting and burning tokens, check your functions for possible misuse or small details.
+
+Ensure that your variables and data types are correct to avoid compilation and runtime errors in your smart contract.
+
+Be cautious in evaluating your conditions and assertions to avoid potential security and safety issues.
+
+When facing issues with the execution and operation of your smart contract, simply debug using tools such as Ganache to analyze or check your created code and identify potential problems
+
+
+## Authors
+
+Contributors names and contact info
+
+Abhishek Kumar
+abhishekkr9823@gmail.com
+
+
+
+## License
+
+This project is licensed under the [MIT] License - see the LICENSE.md file for details
