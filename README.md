@@ -4,8 +4,7 @@ This is a basic Solidity contract for a token named "Meta" with the symbol "MTA"
 Overview
 This program is a simple smart contract written in Solidity, the programming language used for developing decentralized applications on the Ethereum blockchain. It also includes a mapping variable. The contract provides two main functions: mint and burn. The mint function allows adding tokens to the total supply and to the balance of a specific address. The burn function enables the removal of tokens from the total supply and the balance of a given address, provided the address has a sufficient balance to cover the burn amount.
 
-Getting Started
-Running the Program
+Getting Started Running the Program
 To execute this program, you can use Remix, an online IDE designed for Solidity. Head to the Remix platform at Remix Ethereum. Once there, create a new file by clicking the "+" button in the left-hand menu. Save the file with a .sol extension. Copy and paste the following code into the newly created file:
 
 solidity
